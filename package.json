@@ -24,6 +24,7 @@
   ],
   "author": "diego.zuniga.mendez@gmail.com",
   "license": "MIT",
+  "repository": "https://github.com/dzunigamendez/react-starter-kit",
   "engines": {
     "node": ">= 10.x.x <= 11.x.x"
   },

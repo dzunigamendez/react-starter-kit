@@ -1,10 +1,14 @@
-- Init project
+# React Starter Kit
+
+## Init project
 
 ```bash
 npm init
 ```
 
--- Install webpack dev dependencies
+## Install Webpack
+
+- Install dev dependencies
 
 ```bash
 npm install --save-dev webpack webpack-cli
@@ -14,30 +18,22 @@ npm install --save-dev webpack webpack-cli
 
 ```json
 {
-    ...
-    "scripts": {
-        "build": "webpack"
-    },
-    ...
+  "scripts": {
+    "build": "webpack"
+  }
 }
-```
-
-- Install babel dev dependencies
-
-```bash
-npm install --save-dev @babel/core @babel/preset-env @babel/register
-```
-
-- Install webpack babel loader
-
-```bash
-npm install --save-dev babel-loader
 ```
 
 - Install webpack plugins
 
 ```bash
 npm install --save-dev html-webpack-plugin script-ext-html-webpack-plugin
+```
+
+- Install webpack babel loader
+
+```bash
+npm install --save-dev babel-loader
 ```
 
 - Create `webpack.config.babel` file
@@ -82,6 +78,14 @@ export default {
 };
 ```
 
+## Install Babel
+
+- Install dev dependencies
+
+```bash
+npm install --save-dev @babel/core @babel/preset-env @babel/register
+```
+
 - Create `.babelrc` file
 
 ```json
@@ -115,14 +119,12 @@ npm install --save-dev webpack-dev-server
 
 ```javascript
 {
-    ...
     mode: 'development',
     devServer: {
         contentBase: './dist',
         inline: true,
         port: 3000,
     },
-    ...
 }
 ```
 
@@ -130,12 +132,9 @@ npm install --save-dev webpack-dev-server
 
 ```json
 {
-    ...
-    "scripts": {
-        ...
-        "start": "webpack-dev-server --open",
-        ...
-    }
+  "scripts": {
+    "start": "webpack-dev-server --open"
+  }
 }
 ```
 
@@ -158,8 +157,7 @@ npm install --save-dev babel-eslint
 
 ```json
 {
-    "parser": "babel-eslint",
-    ...
+  "parser": "babel-eslint"
 }
 ```
 
@@ -167,13 +165,10 @@ npm install --save-dev babel-eslint
 
 ```json
 {
-    ...
-    "scripts": {
-        ...
-        "eslint": "eslint src/**/*.js",
-        "eslint:fix": "npm run eslint -- --fix",
-        ...
-    }
+  "scripts": {
+    "eslint": "eslint src/**/*.js",
+    "eslint:fix": "npm run eslint -- --fix"
+  }
 }
 ```
 
@@ -205,13 +200,10 @@ npm install --save-dev prettier
 
 ```json
 {
-    ...
-    "scripts": {
-        ...
-        "prettier": "prettier src/**/*.js",
-        "prettier:write": "npm run prettier -- --write",
-        ...
-    }
+  "scripts": {
+    "prettier": "prettier src/**/*.js",
+    "prettier:write": "npm run prettier -- --write"
+  }
 }
 ```
 
@@ -229,13 +221,7 @@ npm install --save-dev eslint-plugin-prettier eslint-config-prettier
 
 ```json
 {
-    ...
-    "extends": [
-        "standard",
-        "plugin:prettier/recommended",
-        "prettier/standard"
-    ]
-    ...
+  "extends": ["standard", "plugin:prettier/recommended", "prettier/standard"]
 }
 ```
 
@@ -251,12 +237,9 @@ npm install npm-run-all --save-dev
 
 ```json
 {
-    ...
-    "scripts": {
-        ...
-        "format": "npm-run-all prettier:write eslint:fix"
-        ...
-    }
+  "scripts": {
+    "format": "npm-run-all prettier:write eslint:fix"
+  }
 }
 ```
 
@@ -286,20 +269,18 @@ npm install --save-dev eslint-plugin-react
 
 ```json
 {
-    ...
-    "extends": [
-        "standard",
-        "plugin:react/recommended",
-        "plugin:prettier/recommended",
-        "prettier/standard",
-        "prettier/react"
-    ],
-    "settings": {
-        "react": {
-        "version": "detect"
-        }
+  "extends": [
+    "standard",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/standard",
+    "prettier/react"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
     }
-    ...
+  }
 }
 ```
 
@@ -324,12 +305,9 @@ npm install --save-dev react-hot-loader
 
 ```json
 {
-    ...
-    "scripts": {
-        ...
-        "start": "webpack-dev-server --hot --open"
-        ...
-    }
+  "scripts": {
+    "start": "webpack-dev-server --hot --open"
+  }
 }
 ```
 
@@ -345,12 +323,9 @@ npm install --save-dev cross-env
 
 ```json
 {
-    ...
-    "scripts": {
-        ...
-        "start": "webpack-dev-server --hot --open"
-        ...
-    }
+  "scripts": {
+    "start": "webpack-dev-server --hot --open"
+  }
 }
 ```
 
@@ -366,11 +341,9 @@ npm install --save-dev rimraf
 
 ```json
 {
-    ...
-    "scripts": {
-        "clean": "rimraf dist",
-        ...
-    }
+  "scripts": {
+    "clean": "rimraf dist"
+  }
 }
 ```
 
@@ -378,12 +351,9 @@ npm install --save-dev rimraf
 
 ```json
 {
-    ...
-    "scripts": {
-        ...
-        "webpack": "cross-env NODE_ENV=production webpack",
-        "build": "npm-run-all clean webpack",
-        ...
-    }
+  "scripts": {
+    "webpack": "cross-env NODE_ENV=production webpack",
+    "build": "npm-run-all clean webpack"
+  }
 }
 ```

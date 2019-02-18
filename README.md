@@ -357,3 +357,64 @@ npm install --save-dev rimraf
   }
 }
 ```
+
+## SASS
+
+- Install dev dependencies
+
+```bash
+npm install --save-dev sass-loader node-sass
+npm install --save-dev style-loader css-loader
+npm install --save-dev mini-css-extract-plugin
+```
+
+- Add SASS rule in `webpack.config.babel file`
+
+```javascript
+export default {
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['src/scss'],
+            },
+          },
+        ],
+      },
+    ],
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      }),
+    ],
+  },
+};
+```
+
+## Minimizing For Production
+
+- Install dev dependencies
+
+```bash
+npm install --save-dev uglifyjs-webpack-plugin optimize-css-assets-webpack-plugin
+```
+
+- Update `webpack.config.babel.js` file
+
+```javascript
+export default {
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({cache: true, parallel: true, sourceMap: true}),
+      new OptimizeCssAssetsPlugin(),
+    ],
+  },
+};
+```
